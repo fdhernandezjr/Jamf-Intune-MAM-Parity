@@ -6,7 +6,7 @@ import sys
 
 path = Path("policies/catalog.yaml")
 content = path.read_text(encoding="utf-8")
-ids = re.findall(r"^  - id: (APP-\\d{2})$", content, re.M)
+ids = re.findall(r"^  - id: (APP-\d{2})$", content, re.M)
 if len(ids) != 12 or len(set(ids)) != 12:
     sys.exit(f"Expected 12 unique control IDs; got {ids}")
 if set(ids) != {f"APP-{i:02}" for i in range(1, 13)}:
