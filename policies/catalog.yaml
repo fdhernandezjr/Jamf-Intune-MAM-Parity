@@ -1,0 +1,63 @@
+version: 1
+status: research_baseline
+controls:
+  - id: APP-01
+    name: Managed application deployment
+    platforms: [macos, ios, ipados]
+    initial_parity: comparable_device_management
+    verified: false
+  - id: APP-02
+    name: Managed app configuration
+    platforms: [macos, ios, ipados]
+    initial_parity: conditional
+    verified: false
+  - id: APP-03
+    name: Managed to unmanaged document sharing
+    platforms: [ios, ipados]
+    initial_parity: partial
+    verified: false
+  - id: APP-04
+    name: Managed pasteboard restrictions
+    platforms: [ios, ipados]
+    initial_parity: partial
+    verified: false
+  - id: APP-05
+    name: Managed app backup restrictions
+    platforms: [ios, ipados]
+    initial_parity: partial
+    verified: false
+  - id: APP-06
+    name: App level PIN and biometrics
+    platforms: [ios, ipados]
+    initial_parity: gap
+    verified: false
+  - id: APP-07
+    name: Selective corporate wipe
+    platforms: [ios, ipados]
+    initial_parity: partial
+    verified: false
+  - id: APP-08
+    name: MAM without device enrollment
+    platforms: [ios, ipados]
+    initial_parity: gap
+    verified: false
+  - id: APP-09
+    name: App SDK encryption and protection
+    platforms: [ios, ipados]
+    initial_parity: gap
+    verified: false
+  - id: APP-10
+    name: Compliance and Conditional Access integration
+    platforms: [macos, ios, ipados]
+    initial_parity: integration_dependent
+    verified: false
+  - id: APP-11
+    name: Device passcode and encryption
+    platforms: [macos, ios, ipados]
+    initial_parity: comparable_device_management
+    verified: false
+  - id: APP-12
+    name: Per app network controls
+    platforms: [macos, ios, ipados]
+    initial_parity: conditional
+    verified: false

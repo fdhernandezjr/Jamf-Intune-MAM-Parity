@@ -1,0 +1,27 @@
+name: Validate framework
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate policy catalog
+        run: python3 scripts/validate_catalog.py
+      - name: Check tracked files for forbidden artifacts
+        run: |
+          python3 - <<'PY'
+          import subprocess,sys,re
+          files=subprocess.check_output(['git','ls-files'],text=True).splitlines()
+          bad=[f for f in files if re.search(r'(^|/)(\.env($|\.)|secrets/|\.terraform/)|\.tfstate(\.|$)|\.tfplan$|\.p12$|\.pfx$|\.pem$',f)]
+          if bad:
+              print('Forbidden tracked paths:',*bad,sep='\n');sys.exit(1)
+          print('No forbidden tracked paths')
+          PY
